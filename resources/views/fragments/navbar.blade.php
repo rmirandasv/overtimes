@@ -1,7 +1,7 @@
 {{-- fragments.navbar --}}
 <nav class="navbar is-primary" role="navigation" aria-label="{{ __('ui.arialabel.navbar.mainnavigation') }}">
     <div class="navbar-brand">
-        <a class="navbar-item">
+        <a class="navbar-item is-italic is-italic">
             {{ strtoupper(config('app.name')) }}
         </a>
         <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false">
@@ -12,7 +12,7 @@
     </div>
     <div class="navbar-start">
         <a class="navbar-item" href="{{ route('users.index') }}">{{ __('ui.navbar.dashboard') }}</a>
-        <a class="navbar-item" href="{{ route('users.index') }}">{{ __('ui.navbar.users.users') }}</a>
+        <a class="navbar-item is-active" href="{{ route('users.index') }}">{{ __('ui.navbar.users.users') }}</a>
         <a class="navbar-item" href="#">{{ __('ui.navbar.overtimes.overtimes') }}</a>
         <a class="navbar-item" href="#">{{ __('ui.navbar.config.config') }}</a>
     </div>

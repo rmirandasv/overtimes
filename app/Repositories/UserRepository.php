@@ -9,14 +9,14 @@ interface UserRepository
 
     public function get($id);
 
-    public function add($user);
+    public function add($data);
 
-    public function update($user);
+    public function update($id, $data = []);
 
-    public function delete($user);
+    public function delete($id);
 
-    public function restore($user);
+    public function restore($id);
 
-    public function forceDelete($user);
+    public function forceDelete($id);
 
 }

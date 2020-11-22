@@ -25,7 +25,7 @@ class CreateUsersTable extends Migration
             $table->rememberToken()->nullable();
             $table->integer('login_attemps')->default(0);
             $table->boolean('active')->default(1);
-            $table->boolean('locked')->default(1);
+            $table->boolean('locked')->default(0);
             $table->unsignedBigInteger('role_id');
             $table->timestamps();
             $table->softDeletes();

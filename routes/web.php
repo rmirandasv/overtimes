@@ -13,4 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/dashboard', 'App\Http\Controllers\DashboardController@index')->name('dashboard.index');
+
 Route::get('/users', 'App\Http\Controllers\UserController@index')->name('users.index');
+Route::get('/users/create', 'App\Http\Controllers\UserController@create')->name('users.create');
+
+route::get('/overtimes', 'App\Http\Controllers\OvertimeController@index')->name('overtimes.index');
+
+route::get('/config', 'App\Http\Controllers\ConfigController@index')->name('config.index');

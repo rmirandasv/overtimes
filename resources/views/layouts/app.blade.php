@@ -10,7 +10,13 @@
     @stack('styles')
 </head>
 <body>
-    @include('fragments.navbar')
+
+    {{-- custom navigation component --}}
+    <x-navigation/>
+
+    @yield('breadcrumb')
+
+    @yield('content')
 
     
 </body>

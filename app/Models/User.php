@@ -27,6 +27,17 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+    protected $attributes = [
+        'login_attemps' => 0,
+        'active'        => 1,
+        'locked'        => 0
+    ];
+
+    public function getFullnameAttribute()
+    {
+        return "$this->name $this->last_name";
+    }
+
     public function role()
     {
         return $this->belongsTo('App\Models\Role', 'role_id', 'id');
