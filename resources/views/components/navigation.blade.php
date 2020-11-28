@@ -20,7 +20,7 @@
             <a class="navbar-item @if($isActive('overtimes')) is-active @endif" href="{{ route('overtimes.index') }}">
                 {{ __('ui.navbar.overtimes.overtimes') }}
             </a>
-            <a class="navbar-item @if($isActive('config')) is-active @endif" href="{{ route('config.index') }}">
+            <a class="navbar-item @if($isActive('config')) is-active @endif" href="{{ route('config.global') }}">
                 {{ __('ui.navbar.config.config') }}
             </a>
         </div>

@@ -25,6 +25,21 @@ class AppServiceProvider extends ServiceProvider
             'App\Repositories\UserRepositoryImpl'
         );
 
+        $this->app->bind(
+            'App\Repositories\CostConfigRepository',
+            'App\Repositories\CostConfigRepositoryImpl'
+        );
+
+        $this->app->bind(
+            'App\Repositories\GlobalConfigRepository',
+            'App\Repositories\GlobalConfigRepositoryImpl'
+        );
+
+        $this->app->bind(
+            'App\Repositories\OvertimeRepository',
+            'App\Repositories\OvertimeRepositoryImpl'
+        );
+
     }
 
     /**

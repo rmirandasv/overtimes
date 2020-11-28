@@ -8,6 +8,7 @@ class UserAside extends Component
 {
 
     protected $path;
+    protected $userId;
 
     /**
      * Create a new component instance.
@@ -17,6 +18,7 @@ class UserAside extends Component
     public function __construct(\Illuminate\Http\Request $request)
     {
         $this->path = $request->path();
+        $this->userId = isset($request->userId) ? $request->userId : null;
     }
 
     /**
@@ -32,5 +34,15 @@ class UserAside extends Component
     public function isActive($option) 
     {
         return $this->path === $option;
+    }
+
+    public function isEditing()
+    {
+        return 'users/' . $this->userId . '/edit' === $this->path;
+    }
+
+    public function isDeleting()
+    {
+        return 'users/' . $this->userId . '/delete' === $this->path;
     }
 }

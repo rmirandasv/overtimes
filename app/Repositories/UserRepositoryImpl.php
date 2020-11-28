@@ -9,7 +9,7 @@ class UserRepositoryImpl implements UserRepository
 
     public function all($data = [])
     {
-        return User::all();
+        return User::paginate(10);
     }
 
     public function get($id)
@@ -41,13 +41,13 @@ class UserRepositoryImpl implements UserRepository
         $user = new User();
 
         if ($id instanceof $user) {
-            return $this->add(id);
+            //return $this->add(id);
         }
 
-        $user = $this->get($id);
+        $user = USer::find($id);
 
         $user->name         = $data['name'];
-        $user->last_name    = $daa['last_name'];
+        $user->last_name    = $data['last_name'];
         $user->username     = $data['username'];
 
         if (isset($data['password'])) {
@@ -56,7 +56,7 @@ class UserRepositoryImpl implements UserRepository
 
         $user->role_id      = $data['role_id'];
 
-        if (!$user->wasChanged()) {
+        if (!$user->isDirty()) {
             return $user;
         }
 
@@ -71,7 +71,7 @@ class UserRepositoryImpl implements UserRepository
             $user = $id;
         }
 
-        $user = User;;find($id);
+        $user = User::find($id);
 
         return $user->delete();
     }
@@ -102,4 +102,35 @@ class UserRepositoryImpl implements UserRepository
         return $user->forceDelete();
     }
 
+    public function unlockUserById($userId) : bool
+    {
+        $user = User::find($userId);
+
+        $user->locked = 0;
+
+        return $user->save();
+    }
+
+    public function enableUserById($userId) : bool
+    {
+        $user = User::find($userId);
+
+        $user->active = 1;
+
+        return $user->save();
+    }
+
+    public function disableUserById($userId) : bool
+    {
+        $user = User::find($userId);
+
+        $user->active = 0;
+
+        return $user->save();
+    }
+
+    public function getAllEmployees($data = [])
+    {
+        return User::where('role_id', 2)->get();
+    }
 }

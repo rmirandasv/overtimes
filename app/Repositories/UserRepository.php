@@ -19,4 +19,12 @@ interface UserRepository
 
     public function forceDelete($id);
 
+    public function unlockUserById($userId) : bool;
+
+    public function enableUserById($userId): bool;
+
+    public function disableUserById($userId) : bool;
+
+    public function getAllEmployees($data = []);
+
 }
