@@ -27,8 +27,9 @@ class StoreOvertime extends FormRequest
             'employee' => ['required', 'exists:users,id'],
             'start_date' => ['required', 'date'],
             'finish_date' => ['required', 'date'],
-            'start_time' => ['required', 'time'],
-            'finish_time' => ['required', 'time']
+            'start_time' => ['required'],
+            'finish_time' => ['required'],
+            'overtime_desc' => ['required', 'max:255']
         ];
     }
 }

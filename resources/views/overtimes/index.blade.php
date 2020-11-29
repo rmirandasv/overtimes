@@ -17,6 +17,12 @@
                 <x-overtime-aside/>
             </div>
             <div class="column">
+                @if(session('created'))
+                    <div class="notification is-success is-light">
+                        <button class="delete" @click.prevent="xtimesClose"></button>
+                        {{ session('created') }}
+                    </div>
+                @endif
                 {{ $overtimes->links() }}
                 <div class="table-container">
                     <table class="table is-bordered is-stripped is-fullwidth">
@@ -26,6 +32,7 @@
                                 <th>{{ __('ui.overtimes.index.table.start_time') }}</th>
                                 <th>{{ __('ui.overtimes.index.table.finish_time') }}</th>
                                 <th>{{ __('ui.overtimes.index.table.overtime_desc') }}</th>
+                                <th>{{ __('ui.overtimes.index.table.lasted') }}</th>
                                 <th>{{ __('ui.overtimes.index.table.overtime_cost') }}</th>
                                 <th>{{ __('ui.overtimes.index.table.created_at') }}</th>
                                 <th>{{ __('ui.overtimes.index.table.updated_at') }}</th>
@@ -39,6 +46,7 @@
                                     <td>{{ $overtime->start_time }}</td>
                                     <td>{{ $overtime->finish_time }}</td>
                                     <td>{{ $overtime->overtime_desc }}</td>
+                                    <td>{{ $overtime->worked_minutes }}</td>
                                     <td>{{ $overtime->overtime_cost }}</td>
                                     <td>{{ $overtime->created_at->diffForHumans() }}</td>
                                     <td>{{ $overtime->updated_at->diffForHumans() }}</td>

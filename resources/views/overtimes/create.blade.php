@@ -59,6 +59,13 @@
                                 <div class="control">
                                     <input type="time" class="input @if($errors->has('start_time')) is-danger @endif"
                                         value="{{ old('start_time') }}" name="start_time">
+                                    @if($errors->has('start_time'))
+                                    @foreach($errors->get('start_time') as $error)
+                                    <span class="help is-danger">
+                                        {{ $error }}
+                                    </span>
+                                    @endforeach
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -70,11 +77,11 @@
                         <div class="field-body">
                             <div class="field">
                                 <div class="control">
-                                    <input type="date" class="input @if($errors->has('finish_time')) is-danger @endif"
-                                        name="finish_time" id="finish_time"
-                                        value="{{ old('finish_time') }}">
-                                    @if($errors->has('start_time'))
-                                    @foreach($errors->get('finish_time') as $error)
+                                    <input type="date" class="input @if($errors->has('finish_date')) is-danger @endif"
+                                        name="finish_date" id="finish_date"
+                                        value="{{ old('finish_date') }}">
+                                    @if($errors->has('finish_date'))
+                                    @foreach($errors->get('finish_date') as $error)
                                     <span class="help is-danger">{{ $error}}</span>
                                     @endforeach
                                     @endif
@@ -84,6 +91,13 @@
                                 <div class="control">
                                     <input type="time" class="input @if($errors->has('finish_time')) is-danger @endif"
                                         value="{{ old('finish_time') }}" name="finish_time" id="finish_time">
+                                    @if($errors->has('finish_time'))
+                                    @foreach($errors->get('finish_time') as $error)
+                                    <span class="help is-danger">
+                                        {{ $error }}
+                                    </span>
+                                    @endforeach
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -95,8 +109,16 @@
                         <div class="field-body">
                             <div class="field">
                                 <div class="control">
-                                    <textarea name="overtime_desc" id="overtime_desc" cols="30" rows="10" class="texarea"
+                                    <textarea name="overtime_desc" id="overtime_desc" 
+                                        class="textarea @if($errors->has('overtime_desc')) is-danger @endif"
                                         value="{{ old('overtime_desc') }}"></textarea>
+                                    @if($errors->has('overtime_desc'))
+                                    @foreach($errors->get('overtime_desc') as $error)
+                                    <span class="help is-danger">
+                                        {{ $error }}
+                                    </span>
+                                    @endforeach
+                                    @endif
                                 </div>
                             </div>
                         </div>

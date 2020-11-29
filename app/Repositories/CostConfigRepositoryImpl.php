@@ -25,4 +25,14 @@ class CostConfigRepositoryImpl implements CostConfigRepository
 
         return false;
     }
+
+    public function getWorkedCost($workedMinutes)
+    {
+        $cost = null;
+
+        $cost = OvertimeCost::whereRaw($workedMinutes . ' >= initial_minute')
+            ->whereRaw($workedMinutes . ' <= final_minute')->first();
+
+        return $cost;
+    }
 }

@@ -10,19 +10,26 @@
         </a>
     </div>
     <div class="navbar-menu">
+        @if(auth()->check())
         <div class="navbar-start">
-            <a class="navbar-item @if($isActive('dashboard')) is-active @endif" href="{{ route('dashboard.index') }}">
-                {{ __('ui.navbar.dashboard') }}
+            <a class="navbar-item @if($isActive('overtimes')) is-active @endif" href="{{ route('overtimes.index') }}">
+                {{ __('ui.navbar.overtimes.overtimes') }}
             </a>
             <a class="navbar-item @if($isActive('users')) is-active @endif" href="{{ route('users.index') }}">
                 {{ __('ui.navbar.users.users') }}
-            </a>
-            <a class="navbar-item @if($isActive('overtimes')) is-active @endif" href="{{ route('overtimes.index') }}">
-                {{ __('ui.navbar.overtimes.overtimes') }}
             </a>
             <a class="navbar-item @if($isActive('config')) is-active @endif" href="{{ route('config.global') }}">
                 {{ __('ui.navbar.config.config') }}
             </a>
         </div>
+        @endif
+        @if(auth()->check())
+        <div class="navbar-end">
+            <a class="navbar-item">
+                {{ auth()->user()->fullname }}
+            </a>
+            <a class="navbar-item" href="{{ route('logout') }}">{{ __('ui.login.logout') }}</a>
+        </div>
+        @endif
     </div>
 </nav>

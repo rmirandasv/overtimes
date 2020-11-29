@@ -21,6 +21,7 @@ class CreateOvertimesTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->dateTime('start_time');
             $table->dateTime('finish_time')->nullable();
+            $table->integer('worked_minutes')->nullable();
             $table->string('overtime_desc', 255);
             $table->double('overtime_cost', 10, 2);
             $table->timestamps();

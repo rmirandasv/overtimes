@@ -35,7 +35,13 @@ class OvertimeController extends Controller
 
     public function store(StoreOvertime $request)
     {
-        //:
+        $overtime = $this->overtimeRepository->register($request->validated());
+
+        if (isset($overtime)){
+            return redirect()->route('overtimes.index')->with('created', __('ui.messages.overtimes.created'));
+        }
+
+        abort(500);
     }
 
 }

@@ -84,6 +84,7 @@ return [
                 'overtime_cost' => 'Costo',
                 'created_at' => 'Creado',
                 'updated_at' => 'Actualizado',
+                'lasted' => 'Duración',
                 'empty' => 'No se encontraron horas extras registradas'
             ]
         ],
@@ -99,6 +100,15 @@ return [
         'aside' => [
             'all' => 'Todas las horas extra',
             'register' => 'Registrar'
+        ]
+    ],
+
+    'login' => [
+        'windowtitle' => 'Iniciar Sesión',
+        'logout' => 'Salir',
+        'form' => [
+            'username' => 'Usuario',
+            'password' => 'Contraseña'
         ]
     ],
 
@@ -199,7 +209,8 @@ return [
             'edit' => 'Editar',
             'delete' => 'Eliminar',
             'save' => 'Guardar',
-            'create' => 'Crear'
+            'create' => 'Crear',
+            'login' => 'Entrar'
         ]
     ],
 
@@ -225,6 +236,9 @@ return [
             'costs' => [
                 'created' => 'Regla de costo de hora extra agregado exitosamente.'
             ]
+        ],
+        'overtimes' => [
+            'created' => 'Tiempo de trabajo extra registrado con éxito.'
         ]
     ]
 
