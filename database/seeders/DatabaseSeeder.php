@@ -17,5 +17,6 @@ class DatabaseSeeder extends Seeder
 
         (new RoleSeeder())->run();
         (new OvertimeSetupSeeder())->run();
+        (new UserSeeder())->run();
     }
 }
