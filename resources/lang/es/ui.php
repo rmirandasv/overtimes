@@ -106,6 +106,10 @@ return [
     'login' => [
         'windowtitle' => 'Iniciar Sesión',
         'logout' => 'Salir',
+        'error' => 'Usuario o contraseña invalida',
+        'panel' => [
+            'heading' => 'Iniciar sesión'
+        ],
         'form' => [
             'username' => 'Usuario',
             'password' => 'Contraseña'
@@ -234,7 +238,11 @@ return [
         ],
         'config' => [
             'costs' => [
-                'created' => 'Regla de costo de hora extra agregado exitosamente.'
+                'created' => 'Regla de costo de hora extra agregado exitosamente.',
+                'deleted' => 'Regla de costo de hora extra eliminado exitosamente.'
+            ],
+            'global' => [
+                'updated' => 'Configuración actualizada exitosamente.'
             ]
         ],
         'overtimes' => [

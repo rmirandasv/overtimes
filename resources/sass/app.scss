@@ -4,5 +4,8 @@ $body-background-color:#E0E4FB;
 $menu-item-active-background-color: #4b0082;
 $primary: #4b0082;
 
+$footer-background-color: #cbd1f4 !important;
+$footer-color: false !default;
+$footer-padding: 3rem 1.5rem 6rem !default;
 
 @import '../../node_modules/bulma/bulma.sass';

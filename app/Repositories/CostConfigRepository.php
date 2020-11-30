@@ -9,4 +9,6 @@ interface CostConfigRepository
     public function create($data = []);
 
     public function getWorkedCost($workedMinutes);
+
+    public function deleteCost($costId);
 }

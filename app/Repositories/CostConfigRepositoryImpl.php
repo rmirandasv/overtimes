@@ -35,4 +35,11 @@ class CostConfigRepositoryImpl implements CostConfigRepository
 
         return $cost;
     }
+
+    public function deleteCost($costId)
+    {
+        $cost = OvertimeCost::find($costId);
+
+        return $cost->delete();
+    }
 }

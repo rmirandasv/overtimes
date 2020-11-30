@@ -35,6 +35,7 @@ Route::post('/config', 'App\Http\Controllers\ConfigController@storeGlobal')->nam
 Route::get('/config/costs', 'App\Http\Controllers\ConfigController@costs')->name('config.costs')->middleware('auth');
 Route::get('/config/costs/create', 'App\Http\Controllers\ConfigController@createCost')->name('config.addcost')->middleware('auth');
 Route::post('/config/costs/create', 'App\Http\Controllers\ConfigController@storeCost')->name('config.storecost')->middleware('auth');
+Route::post('/config/costs/delete', 'App\Http\Controllers\ConfigController@deleteCost')->name('config.deletecost');
 
 route::get('/overtimes', 'App\Http\Controllers\OvertimeController@index')->name('overtimes.index')->middleware('auth');
 route::get('/overtimes/register', 'App\Http\Controllers\OvertimeController@create')->name('overtimes.create')->middleware('auth');

@@ -12789,7 +12789,7 @@ a.has-text-danger-dark:focus {
 }
 
 .footer {
-  background-color: #fafafa;
+  background-color: #cbd1f4 !important;
   padding: 3rem 1.5rem 6rem;
 }
 

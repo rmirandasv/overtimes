@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Repositories\CostConfigRepository;
 use App\Repositories\GlobalConfigRepository;
 use App\Http\Requests\StoreCost;
+use App\Http\Requests\StoreGlobalConfig;
 
 class ConfigController extends Controller
 {
@@ -50,9 +51,26 @@ class ConfigController extends Controller
         abort(500);
     }
 
-    public function storeGlobal()
+    public function storeGlobal(StoreGlobalconfig $request)
     {
-        //
+        $updated = $this->globalconfigRepo->updateGlobalConfig($request->validated());
+
+        if ($updated) {
+            return redirect()->route('config.global')->with('updated', __('ui.messages.config.global.updated'));
+        }
+
+        return back();
+    }
+
+    public function deleteCost(Request $request)
+    {
+        $deleted = $this->costConfigRepo->deleteCost($request->cost_id);
+
+        if ($deleted) {
+            return redirect()->route('config.costs')->with('deleted' , __('ui.messages.config.costs.deleted'));
+        }
+
+        return back();
     }
 
 }

@@ -25,6 +25,12 @@
                     {{ session('created') }}
                 </div>
                 @endif
+                @if(session('deleted'))
+                <div class="notification is-success is-light">
+                    <button class="delete" @click.prevent="xtimesClose"></button>
+                    {{ session('deleted') }}
+                </div>
+                @endif
                 <div class="table-container">
                     <table class="table is-bordered is-stripped is-fullwidth">
                         <thead>
@@ -34,7 +40,6 @@
                                 <th>{{ __('ui.config.costs.table.cost') }}</th>
                                 <th>{{ __('ui.config.costs.table.created_at') }}</th>
                                 <th>{{ __('ui.config.costs.table.updated_at') }}</th>
-                                <th>{{ __('ui.common.actions.edit') }}</th>
                                 <th>{{ __('ui.common.actions.delete') }}</th>
                             </tr>
                         </thead>
@@ -48,10 +53,13 @@
                                 <td>{{ $conf->created_at->diffForHumans() }}</td>
                                 <td>{{ $conf->updated_at->diffForHumans() }}</td>
                                 <td>
-                                    edit
-                                </td>
-                                <td>
-                                    delete
+                                    <form method="POST" action="{{ route('config.deletecost') }}">
+                                        @csrf
+                                        <input type="hidden" value="{{ $conf->id }}" name="cost_id" id="cost_id">
+                                        <button class="button is-danger is-light" type="submit">
+                                            <span class="icon"><i class="fas fa-trash"></i></span>
+                                        </button>
+                                    </form>
                                 </td>
                             </tr>
                             @endforeach

@@ -16,13 +16,20 @@
         <div class="columns">
             <div class="column is-2"></div>
             <div class="column">
+                @if(session('updated'))
+                <div class="notification is-success is-light">
+                    <button class="delete" @click.prevent="xtimesClose"></button>
+                    {{ session('updated') }}
+                </div>
+                @endif
                 <form method="POST" action="{{ route('config.storeglobal') }}" autocomplete="off">
                     @csrf
                     <div class="field">
                         <label for="public_costs" class="label">{{ __('ui.config.index.form.public') }}</label>
                         <div class="control">
                             <label class="checkbox">
-                                <input type="checkbox" @if($config->find(1)->value === 'T') checked @endif>
+                                <input type="checkbox" @if($config->find(1)->value === 'T') checked @endif 
+                                    name="public_overtimes" id="public_overtimes">
                                 {{ __('ui.config.index.form.is_public') }}
                             </label>
                         </div>
@@ -30,7 +37,8 @@
                     <div class="field">
                         <label class="label" for="login_attemps">{{ __('ui.config.index.form.login_attemps') }}</label>
                         <div class="field">
-                            <input type="text" class="input" name="login_attemps" id="login_attemps" 
+                            <input type="text" class="input @if($errors->has('login_attempts')) @endif" 
+                                name="login_attempts" id="login_attempts" 
                                 value="{{ $config->find(2)->value }}">
                         </div>
                     </div>
